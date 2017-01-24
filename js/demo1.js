@@ -30,6 +30,8 @@
                 type: 'datetime',
                 dateTimeLabelFormats: { // don't display the dummy year
                     day: '%e. %m. %Y',
+                    week: '%e. %m. %Y',
+                    month: '%e. %m. %Y',
                     year: '%e. %m. %Y'
                 },
                 title: {

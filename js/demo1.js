@@ -41,23 +41,46 @@
             yAxis: [{
                 //className: 'highcharts-color-0',
                 title: {
-                    text: 'Primary axis'
+                    text: 'Primary axis',
+                    align: 'high',
+                    offset: -20,
+                    rotation: 0,
+                    y: -20
                 }
             }, {
                 //className: 'highcharts-color-1',
                 opposite: true,
                 title: {
-                    text: 'Secondary axis'
+                    text: 'Secondary axis',
+                    align: 'high',
+                    offset: -20,
+                    rotation: 0,
+                    y: -20
                 }
             }],
+
+            tooltip: {
+                enabled: false
+            },
 
             plotOptions: {
                 spline: {
                     marker: {
                         enabled: true
                     },
-                    enableMouseTracking: false
+                    
+                    //enableMouseTracking: false
                 },
+                series: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                alert('date: ' + new Date(this.x) + ', value: ' + this.y);
+                            }
+                        }
+                    }
+                }
 
             },
 
@@ -67,8 +90,8 @@
                 // of 1970/71 in order to be compared on the same x axis. Note
                 // that in JavaScript, months start at 0 for January, 1 for February etc.
                 data: [
-                    [Date.UTC(1970, 9, 21), 0],
-                    [Date.UTC(1970, 10, 4), 0.28],
+                    { x: Date.UTC(1970, 9, 21), y: 0, color: "#030303" },
+                    { x: Date.UTC(1970, 10, 4), y: 0.28, color: "#fff333" },
                     [Date.UTC(1970, 10, 9), 0.25],
                     [Date.UTC(1970, 10, 27), 0.2],
                     [Date.UTC(1970, 11, 2), 0.28],
@@ -79,7 +102,7 @@
                     [Date.UTC(1971, 1, 3), 1.02],
                     [Date.UTC(1971, 1, 11), 1.12],
                     [Date.UTC(1971, 1, 25), 1.2],
-                    [Date.UTC(1971, 2, 11), 1.18],
+                    { x: Date.UTC(1971, 2, 11), y: 1.18, color: "red" },
                     [Date.UTC(1971, 3, 11), 1.19],
                     [Date.UTC(1971, 4, 1), 1.85],
                     [Date.UTC(1971, 4, 5), 2.22],
